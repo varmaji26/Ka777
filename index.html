@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KALYAN777 - Apps on Google Play</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --play-blue: #0b57d0;
+            --play-blue-hover: #0842a0;
+            --text-primary: #1f1f1f;
+            --text-secondary: #5f6368;
+            --bg-light: #ffffff;
+            --card-bg: #f8f9fa;
+            --border-color: #e0e0e0;
+            --star-gold: #01875f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 70px; /* Space for bottom nav */
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar .icon-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 12px;
+        }
+
+        .app-container {
+            padding: 10px 20px 0;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .app-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .app-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 20%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: #0d1b2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20%;
+        }
+
+        .app-icon-inner {
+            text-align: center;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 9px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            padding: 4px;
+        }
+
+        .app-icon-inner i {
+            font-size: 24px;
+            color: #ffb700;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .app-details {
+            flex: 1;
+        }
+
+        .app-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        .developer-name {
+            color: var(--play-blue);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .metrics-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .metric-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: var(--border-color);
+        }
+
+        .metric-val {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .metric-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .rating-box {
+            background: #000;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 4px;
+            border-radius: 3px;
+            border: 1px solid var(--text-primary);
+        }
+
+        .install-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .install-btn {
+            flex: 1;
+            background-color: var(--play-blue);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(11, 87, 208, 0.3);
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(11, 87, 208, 0.6); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(11, 87, 208, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(11, 87, 208, 0); }
+        }
+
+        .install-btn:active {
+            transform: scale(0.98);
+            background-color: var(--play-blue-hover);
+        }
+
+        .dropdown-btn {
+            background-color: var(--play-blue);
+            color: #ffffff;
+            border: none;
+            width: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .device-info {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .screenshots-section {
+            margin: 20px -20px 25px;
+            padding: 0 20px;
+            overflow-x: auto;
+            display: flex;
+            gap: 12px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .screenshots-section::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .screenshot-card {
+            min-width: 210px;
+            width: 210px;
+            height: 420px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            scroll-snap-align: start;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        /* Mock UI inside screenshot 1 */
+        .s1-header {
+            background: #00796b;
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .s1-banner {
+            background: #004d40;
+            color: #80cbd3;
+            padding: 8px;
+            font-size: 11px;
+            border-radius: 8px;
+            margin: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .s1-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin: 6px 8px;
+            padding: 8px;
+            background: #fafafa;
+        }
+        .s1-title {
+            font-weight: bold;
+            font-size: 11px;
+            color: #333;
+        }
+        .s1-time {
+            font-size: 8px;
+            color: #777;
+            margin-top: 4px;
+        }
+        .s1-btn {
+            background: #26a69a;
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Mock UI inside screenshot 2 (Win Rates) */
+        .s2-header {
+            background: #1e2530;
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .s2-table {
+            padding: 8px;
+            font-size: 10px;
+        }
+        .s2-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px;
+            background: #f1f3f4;
+            margin-bottom: 4px;
+            border-radius: 4px;
+        }
+
+        /* Mock UI inside screenshot 3 (Wallet) */
+        .s3-card {
+            background: linear-gradient(135deg, #795548, #3e2723);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .arrow-btn {
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .about-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            margin-bottom: 25px;
+            scrollbar-width: none;
+        }
+
+        .tag-pill {
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .ratings-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .big-rating {
+            text-align: center;
+        }
+
+        .big-rating-num {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .big-rating-stars {
+            color: var(--star-gold);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .rating-bars {
+            flex: 1;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .bar-bg {
+            flex: 1;
+            height: 8px;
+            background-color: #e8eaed;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: var(--star-gold);
+            border-radius: 4px;
+        }
+
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            text-transform: uppercase;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .review-meta .stars {
+            color: var(--star-gold);
+            font-size: 10px;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .review-body {
+            font-size: 13px;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-top: 2px;
+        }
+
+        .review-helpful {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+
+        .helpful-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3px 12px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 11px;
+            gap: 4px;
+        }
+
+        .nav-item.active {
+            color: var(--play-blue);
+            font-weight: 600;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+        }
+
+        .nav-item.active i {
+            background-color: #e8f0fe;
+            padding: 4px 16px;
+            border-radius: 12px;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #323232;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button class="icon-btn" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="top-bar-right">
+            <button class="icon-btn"><i class="fa-regular fa-bookmark"></i></button>
+            <button class="icon-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        
+        <div class="app-header">
+            <div class="app-icon">
+                <img src="logo.png" alt="KALYAN777 Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="app-icon-inner" style="display:none;">
+                    <i class="fa-solid fa-crown"></i>
+                    KALYAN777
+                </div>
+            </div>
+            <div class="app-details">
+                <h1 class="app-title">KALYAN777</h1>
+                <a href="#" class="developer-name">ML Tech Solutions</a>
+            </div>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="metrics-row">
+            <div class="metric-item">
+                <div class="metric-val">4.2 <i class="fa-solid fa-star" style="font-size:10px; color:var(--text-primary)"></i></div>
+                <div class="metric-sub">20K reviews <i class="fa-solid fa-circle-info" style="font-size:10px"></i></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-val"><span class="rating-box">18+</span></div>
+                <div class="metric-sub">Rated for 18+ <i class="fa-solid fa-circle-info" style="font-size:10px"></i></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-val"><i class="fa-solid fa-download"></i></div>
+                <div class="metric-sub">15 MB</div>
+            </div>
+        </div>
+
+        <!-- Install Button -->
+        <div class="install-container">
+            <a href="K777.apk" download="K777.apk" class="install-btn" id="downloadBtn">
+                <i class="fa-solid fa-download" id="downloadIcon"></i>
+                <span id="btnText">Install</span>
+            </a>
+            <button class="dropdown-btn"><i class="fa-solid fa-caret-down"></i></button>
+        </div>
+
+        <div class="device-info">Install on phone. More devices available.</div>
+
+        <div class="screenshots-section">
+            
+            <!-- Screenshot 1: Games -->
+            <div class="screenshot-card">
+                <div class="s1-header">
+                    <span><i class="fa-solid fa-bars"></i> &nbsp; Games</span>
+                </div>
+                <div class="s1-banner">
+                    <div>
+                        <b>GALI DISAWAR</b><br>
+                        <span style="font-size:9px">5 games available</span>
+                    </div>
+                    <span style="background:#00796b; padding:2px 6px; border-radius:4px; font-size:9px;">View All &rarr;</span>
+                </div>
+                <div style="font-size:9px; color:#666; margin:4px 8px; font-weight:bold;">Morning</div>
+                
+                <div class="s1-card">
+                    <div class="s1-title">KARNATAKA DAY</div>
+                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
+                    <div class="s1-time">OPEN BIDS: 10:00 AM &nbsp; CLOSE BIDS: 11:00 AM</div>
+                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
+                </div>
+
+                <div class="s1-card">
+                    <div class="s1-title">SRIDEVI MORNING</div>
+                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
+                    <div class="s1-time">OPEN BIDS: 10:00 AM &nbsp; CLOSE BIDS: 11:00 AM</div>
+                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
+                </div>
+
+                <div class="s1-card">
+                    <div class="s1-title">MADHUR MORNING</div>
+                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
+                    <div class="s1-time">OPEN BIDS: 10:30 AM &nbsp; CLOSE BIDS: 12:30 PM</div>
+                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
+                </div>
+            </div>
+
+            <!-- Screenshot 2: Win Rates -->
+            <div class="screenshot-card">
+                <div class="s2-header">&larr; Win Rates</div>
+                <div style="background:#00796b; color:white; padding:10px; margin:8px; border-radius:8px;">
+                    <div style="font-weight:bold; font-size:11px;">Payout Chart</div>
+                    <div style="font-size:8px; opacity:0.8">Bet ₹1 on any type below and see how much you can win.</div>
+                </div>
+                <div class="s2-table">
+                    <div style="font-weight:bold; margin-bottom:4px;">Single Digit (ANK)</div>
+                    <div class="s2-row"><span>Ank Open</span> <b>x9</b> <span style="color:green">₹9</span></div>
+                    <div class="s2-row"><span>Ank Close</span> <b>x9</b> <span style="color:green">₹9</span></div>
+                    
+                    <div style="font-weight:bold; margin: 8px 0 4px;">Jodi</div>
+                    <div class="s2-row"><span>Jodi (00-99)</span> <b>x90</b> <span style="color:green">₹90</span></div>
+
+                    <div style="font-weight:bold; margin: 8px 0 4px;">Single Panna (SP)</div>
+                    <div class="s2-row"><span>Single Panna Open</span> <b>x150</b> <span style="color:green">₹150</span></div>
+                </div>
+            </div>
+
+            <!-- Screenshot 3: Wallet -->
+            <div class="screenshot-card">
+                <div class="s1-header">
+                    <span><i class="fa-solid fa-bars"></i> &nbsp; Wallet</span>
+                </div>
+                <div style="padding:10px; font-weight:bold; font-size:12px;">My Wallet</div>
+                <div class="s3-card">
+                    <i class="fa-solid fa-wallet" style="font-size:30px; margin-bottom:5px;"></i>
+                    <div style="font-size:10px; opacity:0.8">Available Balance</div>
+                    <div style="font-size:20px; font-weight:bold;">₹ 0.00</div>
+                </div>
+                <button style="background:#000; color:white; border:none; padding:8px; margin:0 10px; border-radius:6px; font-size:10px; font-weight:bold;">+ Add Points</button>
+            </div>
+
+        </div>
+
+        <div class="section-header">
+            <h2 class="section-title">About this game</h2>
+            <span class="arrow-btn">&rarr;</span>
+        </div>
+
+        <p class="about-text">
+            Secure app for KALYAN777 results, live updates, and fast payout rates. Get instant updates on all major markets with 100% safe gaming experience, instant withdrawals, and 24/7 dedicated customer support.
+        </p>
+
+        <div class="tags-container">
+            <span class="tag-pill">#1 Top Free</span>
+            <span class="tag-pill">Casino</span>
+            <span class="tag-pill">Board</span>
+            <span class="tag-pill">Casual</span>
+        </div>
+
+        <div class="section-header">
+            <h2 class="section-title">Data safety</h2>
+            <span class="arrow-btn">&rarr;</span>
+        </div>
+        <p class="about-text" style="font-size:12px;">
+            Safety starts with understanding how developers collect and share your data. Data privacy and security practices may vary based on your use, region, and age.
+        </p>
+
+        <div class="section-header">
+            <h2 class="section-title">Ratings and reviews</h2>
+            <span class="arrow-btn">&rarr;</span>
+        </div>
+
+        <div class="ratings-container">
+            <div class="big-rating">
+                <div class="big-rating-num">4.2</div>
+                <div class="big-rating-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">20K reviews</div>
+            </div>
+
+            <div class="rating-bars">
+                <div class="bar-row">
+                    <span>5</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span>4</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 18%;"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span>3</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 5%;"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span>2</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 3%;"></div></div>
+                </div>
+                <div class="bar-row">
+                    <span>1</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 4%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Reviews Section -->
+        <div class="reviews-list">
+            <!-- Review 1: Ravi Shukal -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #3f51b5;">R</div>
+                    <div class="user-info">
+                        <div class="user-name">Ravi Shukal</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">15 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">very fast successful result</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 2: Rahul Sharma -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #00897b;">R</div>
+                    <div class="user-info">
+                        <div class="user-name">Rahul Sharma</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">18 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">बहुत ही बढ़िया ऐप है, रिज़ल्ट एकदम फ़ास्ट आता है और विड्रॉल भी तुरंत मिल जाता है। बेस्ट ऐप!</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 3: Vikas Yadav -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #8e24aa;">V</div>
+                    <div class="user-info">
+                        <div class="user-name">Vikas Yadav</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">20 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">कल्याण 777 सबसे बेस्ट मार्केट ऐप है, रिस्पांस और कस्टमर सपोर्ट सर्विस 100% जेनुइन है।</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 4: Amit Patel -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #e53935;">A</div>
+                    <div class="user-info">
+                        <div class="user-name">Amit Patel</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">12 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">Fast service and 100% trusted app! Withdraw in just 5 minutes. Highly recommended.</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 5: Suresh Verma -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #fb8c00;">S</div>
+                    <div class="user-info">
+                        <div class="user-name">Suresh Verma</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">10 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">Instant payment method and very smooth UI. Sabse fast result milta hai yaha pe.</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 6: Pankaj Kumar -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #1e88e5;">P</div>
+                    <div class="user-info">
+                        <div class="user-name">Pankaj Kumar</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">05 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">बहुत ही अच्छा एप्लीकेशन है। लाइव अपडेट्स बिल्कुल सही समय पर आते हैं। नंबर 1 ऐप।</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 7: Manoj Singh -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #43a047;">M</div>
+                    <div class="user-info">
+                        <div class="user-name">Manoj Singh</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">22 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">Fast withdrawal system, instant account me paise aa jate hai. Very good app!</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Review 8: Sunil Gupta -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-avatar" style="background-color: #d81b60;">S</div>
+                    <div class="user-info">
+                        <div class="user-name">Sunil Gupta</div>
+                        <div class="review-meta">
+                            <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="review-date">14 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-body">सबका बाप ऐप है ये! रिज़ल्ट स्पीड और सर्विस सबसे तेज़। 100% ऑरिजिनल और भरोसेमंद।</div>
+                <div class="review-helpful">
+                    <span>Was this review helpful?</span>
+                    <button class="helpful-btn">Yes</button>
+                    <button class="helpful-btn">No</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom-nav">
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>Games</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-border-all"></i>
+            <span>Apps</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-book"></i>
+            <span>Books</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-user"></i>
+            <span>You</span>
+        </a>
+    </div>
+
+    <!-- Toast message on download -->
+    <div id="toast" class="toast">Downloading K777.apk...</div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            var btn = this;
+            var btnText = document.getElementById('btnText');
+            var downloadIcon = document.getElementById('downloadIcon');
+            var toast = document.getElementById('toast');
+
+            // Prevent multiple clicks during download
+            if (btn.classList.contains('downloading') || btn.classList.contains('installed')) {
+                return;
+            }
+
+            btn.classList.add('downloading');
+            btn.style.animation = 'none';
+            toast.innerText = 'Downloading K777.apk...';
+            toast.classList.add('show');
+
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += 10;
+                if (progress <= 100) {
+                    btnText.innerText = 'Downloading ' + progress + '%';
+                    downloadIcon.className = 'fa-solid fa-spinner fa-spin';
+                } else {
+                    clearInterval(interval);
+                    btnText.innerText = 'Installing...';
+                    
+                    setTimeout(function() {
+                        btnText.innerText = 'Open';
+                        downloadIcon.className = 'fa-solid fa-folder-open';
+                        btn.style.backgroundColor = '#01875f';
+                        btn.classList.remove('downloading');
+                        btn.classList.add('installed');
+                        toast.innerText = 'App Installed Successfully!';
+                        
+                        setTimeout(function() {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }, 1200);
+
+                    // Trigger direct APK file download
+                    try {
+                        var sampleApkData = "PK\x03\x04\x14\x00\x00\x00\x00\x00KALYAN777 APK FILE DATA";
+                        var blob = new Blob([sampleApkData], { type: 'application/vnd.android.package-archive' });
+                        var blobUrl = URL.createObjectURL(blob);
+                        var tempLink = document.createElement('a');
+                        tempLink.href = blobUrl;
+                        tempLink.download = 'K777.apk';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                        setTimeout(function() { URL.revokeObjectURL(blobUrl); }, 1000);
+                    } catch(err) {
+                        console.log("Download triggered via href.");
+                    }
+                }
+            }, 180);
+        });
+    </script>
+</body>
+</html>
