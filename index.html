@@ -278,89 +278,172 @@
             display: flex;
             flex-direction: column;
             flex-shrink: 0;
+            font-family: inherit;
         }
 
-        /* Mock UI inside screenshot 1 */
-        .s1-header {
-            background: #00796b;
+        /* App Mock Screenshot Styles */
+        .app-mock-top {
+            background: #1c3d42;
             color: white;
-            padding: 10px;
-            font-size: 12px;
+            padding: 8px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .s1-banner {
-            background: #004d40;
-            color: #80cbd3;
-            padding: 8px;
             font-size: 11px;
-            border-radius: 8px;
-            margin: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .s1-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            margin: 6px 8px;
-            padding: 8px;
-            background: #fafafa;
-        }
-        .s1-title {
             font-weight: bold;
-            font-size: 11px;
-            color: #333;
         }
-        .s1-time {
+        .app-mock-wallet {
+            background: rgba(255,255,255,0.15);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .app-mock-body {
+            background: #f4f6f8;
+            flex: 1;
+            padding: 6px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .app-mock-body::-webkit-scrollbar { display: none; }
+
+        .app-action-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .app-btn-green {
+            background: #28a745;
+            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .app-btn-red {
+            background: #dc3545;
+            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .app-btn-orange {
+            background: linear-gradient(90deg, #ff8c00, #ffa500);
+            color: white;
+            padding: 6px;
+            border-radius: 12px;
             font-size: 8px;
-            color: #777;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .app-game-card {
+            background: white;
+            border-radius: 8px;
+            padding: 6px;
+            margin-bottom: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .app-game-title {
+            font-weight: bold;
+            font-size: 10px;
+            color: #1c3d42;
+            display: flex;
+            justify-content: space-between;
+        }
+        .app-game-time {
+            font-size: 7px;
+            color: #666;
+        }
+        .app-game-num {
+            text-align: center;
+            font-weight: bold;
+            color: #d9534f;
+            letter-spacing: 2px;
+            font-size: 10px;
+            background: #fdf2f2;
+            padding: 2px;
+            border-radius: 4px;
+            margin: 4px 0;
+        }
+        .app-game-actions {
+            display: flex;
+            justify-content: space-around;
             margin-top: 4px;
         }
-        .s1-btn {
-            background: #26a69a;
-            color: white;
-            border: none;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 10px;
-            cursor: pointer;
-            float: right;
-        }
-
-        /* Mock UI inside screenshot 2 (Win Rates) */
-        .s2-header {
-            background: #1e2530;
-            color: white;
-            padding: 10px;
-            font-size: 12px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .s2-table {
-            padding: 8px;
-            font-size: 10px;
-        }
-        .s2-row {
+        .app-icon-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #eef2f5;
             display: flex;
-            justify-content: space-between;
-            padding: 6px;
-            background: #f1f3f4;
-            margin-bottom: 4px;
-            border-radius: 4px;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #1c3d42;
         }
 
-        /* Mock UI inside screenshot 3 (Wallet) */
-        .s3-card {
-            background: linear-gradient(135deg, #795548, #3e2723);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin: 10px;
+        .app-bottom-bar {
+            background: #1c3d42;
+            color: #aaa;
+            display: flex;
+            justify-content: space-around;
+            padding: 6px 0;
+            font-size: 7px;
             text-align: center;
         }
+        .app-bottom-bar .active { color: #ff8c00; }
 
+        /* Grid cards style (Screenshot 2 & 4) */
+        .app-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .app-grid-card {
+            background: white;
+            border-radius: 10px;
+            padding: 10px 4px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .app-grid-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #e0f2f1;
+            color: #00796b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+        .app-grid-label {
+            font-size: 8px;
+            font-weight: bold;
+            color: #1c3d42;
+        }
+        
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -665,74 +748,194 @@
 
         <div class="screenshots-section">
             
-            <!-- Screenshot 1: Games -->
+            <!-- Screenshot 1: Real App Home Screen -->
             <div class="screenshot-card">
-                <div class="s1-header">
-                    <span><i class="fa-solid fa-bars"></i> &nbsp; Games</span>
-                </div>
-                <div class="s1-banner">
-                    <div>
-                        <b>GALI DISAWAR</b><br>
-                        <span style="font-size:9px">5 games available</span>
+                <div class="app-mock-top">
+                    <span><i class="fa-solid fa-bars"></i> &nbsp; KALYAN 777</span>
+                    <div class="app-mock-wallet">
+                        <i class="fa-solid fa-wallet" style="color:#ffb700"></i> 1000000
                     </div>
-                    <span style="background:#00796b; padding:2px 6px; border-radius:4px; font-size:9px;">View All &rarr;</span>
                 </div>
-                <div style="font-size:9px; color:#666; margin:4px 8px; font-weight:bold;">Morning</div>
-                
-                <div class="s1-card">
-                    <div class="s1-title">KARNATAKA DAY</div>
-                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
-                    <div class="s1-time">OPEN BIDS: 10:00 AM &nbsp; CLOSE BIDS: 11:00 AM</div>
-                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
-                </div>
+                <div class="app-mock-body">
+                    <div class="app-action-btns">
+                        <div class="app-btn-green"><i class="fa-solid fa-wallet"></i> Add Money</div>
+                        <div class="app-btn-red"><i class="fa-solid fa-building-columns"></i> Withdraw</div>
+                    </div>
+                    <div class="app-action-btns">
+                        <div class="app-btn-orange">★ KALYAN 777 STARLINE</div>
+                        <div class="app-btn-orange">🏆 KALYAN 777 JACKPOT</div>
+                    </div>
 
-                <div class="s1-card">
-                    <div class="s1-title">SRIDEVI MORNING</div>
-                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
-                    <div class="s1-time">OPEN BIDS: 10:00 AM &nbsp; CLOSE BIDS: 11:00 AM</div>
-                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
-                </div>
+                    <div style="font-size:7px; color:#555; background:#e0f2f1; padding:3px; border-radius:4px; margin-bottom:6px; white-space:nowrap; overflow:hidden;">
+                        ✨ And turn every moment into a winning chance...
+                    </div>
 
-                <div class="s1-card">
-                    <div class="s1-title">MADHUR MORNING</div>
-                    <div style="color:red; font-size:9px; margin-top:2px;">Market Closed</div>
-                    <div class="s1-time">OPEN BIDS: 10:30 AM &nbsp; CLOSE BIDS: 12:30 PM</div>
-                    <button class="s1-btn"><i class="fa-solid fa-play"></i> Play</button>
+                    <!-- Game 1 -->
+                    <div class="app-game-card">
+                        <div class="app-game-title">
+                            <span>SRIDEVI</span>
+                            <span class="app-game-time" style="color:#00796b">11:30 AM / 12:30 PM</span>
+                        </div>
+                        <div class="app-game-num">*** - ** - ***</div>
+                        <div style="font-size:7px; color:red; text-align:right; font-weight:bold;">CLOSED</div>
+                        <div class="app-game-actions">
+                            <div class="app-icon-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="app-icon-circle" style="background:#ff9800; color:white;"><i class="fa-solid fa-chart-simple"></i></div>
+                            <div class="app-icon-circle"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Game 2 -->
+                    <div class="app-game-card">
+                        <div class="app-game-title">
+                            <span>TIME BAZAR</span>
+                            <span class="app-game-time" style="color:#00796b">12:55 PM / 1:55 PM</span>
+                        </div>
+                        <div class="app-game-num">*** - ** - ***</div>
+                        <div style="font-size:7px; color:red; text-align:right; font-weight:bold;">CLOSED</div>
+                        <div class="app-game-actions">
+                            <div class="app-icon-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="app-icon-circle" style="background:#ff9800; color:white;"><i class="fa-solid fa-chart-simple"></i></div>
+                            <div class="app-icon-circle"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Game 3 -->
+                    <div class="app-game-card">
+                        <div class="app-game-title">
+                            <span>MADHUR DAY</span>
+                            <span class="app-game-time" style="color:#00796b">1:25 PM / 2:25 PM</span>
+                        </div>
+                        <div class="app-game-num">*** - ** - ***</div>
+                        <div style="font-size:7px; color:red; text-align:right; font-weight:bold;">CLOSED</div>
+                    </div>
+                </div>
+                <div class="app-bottom-bar">
+                    <div><i class="fa-solid fa-receipt"></i><br>My Bids</div>
+                    <div><i class="fa-solid fa-book"></i><br>Passbook</div>
+                    <div class="active"><i class="fa-solid fa-house" style="font-size:12px;"></i><br>Home</div>
+                    <div><i class="fa-solid fa-hand-holding-dollar"></i><br>Funds</div>
+                    <div><i class="fa-solid fa-headset"></i><br>Support</div>
                 </div>
             </div>
 
-            <!-- Screenshot 2: Win Rates -->
+            <!-- Screenshot 2: Bidding Options Screen -->
             <div class="screenshot-card">
-                <div class="s2-header">&larr; Win Rates</div>
-                <div style="background:#00796b; color:white; padding:10px; margin:8px; border-radius:8px;">
-                    <div style="font-weight:bold; font-size:11px;">Payout Chart</div>
-                    <div style="font-size:8px; opacity:0.8">Bet ₹1 on any type below and see how much you can win.</div>
+                <div class="app-mock-top">
+                    <span>SUPREME DAY</span>
+                    <div class="app-mock-wallet">
+                        <i class="fa-solid fa-wallet" style="color:#ffb700"></i> 1000000
+                    </div>
                 </div>
-                <div class="s2-table">
-                    <div style="font-weight:bold; margin: 8px 0 4px;">Single Digit (ANK)</div>
-                    <div class="s2-row"><span>Ank Open</span> <b>x10</b> <span style="color:green">₹10</span></div>
-                    <div class="s2-row"><span>Ank Close</span> <b>x10</b> <span style="color:green">₹10</span></div>
-                    
-                    <div style="font-weight:bold; margin: 8px 0 4px;">Jodi</div>
-                    <div class="s2-row"><span>Jodi (00-99)</span> <b>x100</b> <span style="color:green">₹100</span></div>
+                <div class="app-mock-body">
+                    <div style="text-align:center; font-size:8px; color:#555; margin-bottom:8px;">
+                        🕒 Open: 3:25 PM &nbsp;|&nbsp; Close: 5:25 PM
+                    </div>
 
-                    <div style="font-weight:bold; margin: 8px 0 4px;">Single Panna (SP)</div>
-                    <div class="s2-row"><span>Single Panna Open</span> <b>x150</b> <span style="color:green">₹150</span></div>
+                    <div class="app-grid-2">
+                        <div class="app-grid-card">
+                            <div class="app-grid-icon"><i class="fa-solid fa-dice-one"></i></div>
+                            <div class="app-grid-label">Single Digit</div>
+                        </div>
+                        <div class="app-grid-card">
+                            <div class="app-grid-icon"><i class="fa-solid fa-dice-d20"></i></div>
+                            <div class="app-grid-label">Single Digit Bulk</div>
+                        </div>
+                        <div class="app-grid-card">
+                            <div class="app-grid-card-inner"></div>
+                            <div class="app-grid-icon"><i class="fa-solid fa-dice"></i></div>
+                            <div class="app-grid-label">Jodi Digit</div>
+                        </div>
+                        <div class="app-grid-card">
+                            <div class="app-grid-icon"><i class="fa-solid fa-clone"></i></div>
+                            <div class="app-grid-label">Single Pana</div>
+                        </div>
+                        <div class="app-grid-card">
+                            <div class="app-grid-icon"><i class="fa-solid fa-cards"></i></div>
+                            <div class="app-grid-label">Single Pana Bulk</div>
+                        </div>
+                        <div class="app-grid-card">
+                            <div class="app-grid-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            <div class="app-grid-label">Double Pana</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Screenshot 3: Wallet -->
+            <!-- Screenshot 3: Withdraw Methods Screen -->
             <div class="screenshot-card">
-                <div class="s1-header">
-                    <span><i class="fa-solid fa-bars"></i> &nbsp; Wallet</span>
+                <div class="app-mock-top">
+                    <span>Withdraw Methods</span>
+                    <div class="app-mock-wallet">
+                        <i class="fa-solid fa-wallet" style="color:#ffb700"></i> 1000000
+                    </div>
                 </div>
-                <div style="padding:10px; font-weight:bold; font-size:12px;">My Wallet</div>
-                <div class="s3-card">
-                    <i class="fa-solid fa-wallet" style="font-size:30px; margin-bottom:5px;"></i>
-                    <div style="font-size:10px; opacity:0.8">Available Balance</div>
-                    <div style="font-size:20px; font-weight:bold;">₹ 1000.00</div>
+                <div class="app-mock-body">
+                    <div style="background:#28a745; color:white; font-size:7px; padding:4px 6px; border-radius:10px; margin-bottom:6px; font-weight:bold;">
+                        🎉 Santhosh Krishna ₹ 25000 Withdrawal Successful
+                    </div>
+                    <div style="font-size:7px; color:#333; text-align:center; margin-bottom:6px;">
+                        ⏰ Withdrawal Timing 10:00 AM to 06:00 PM
+                    </div>
+
+                    <div style="font-size:8px; font-weight:bold; color:#1c3d42; margin-bottom:4px;">WITHDRAW OPTIONS</div>
+                    <div class="app-action-btns">
+                        <div style="background:white; border:1.5px solid #00796b; padding:8px; border-radius:6px; text-align:center; font-size:8px; font-weight:bold; color:#00796b;">
+                            <i class="fa-solid fa-mobile-screen"></i> UPI
+                        </div>
+                        <div style="background:white; border:1px solid #ccc; padding:8px; border-radius:6px; text-align:center; font-size:8px; font-weight:bold; color:#555;">
+                            <i class="fa-solid fa-building-columns"></i> ADD BANK
+                        </div>
+                    </div>
+
+                    <div style="background:#e0f2f1; border-radius:6px; padding:6px; margin:6px 0; font-size:7px; color:#1c3d42;">
+                        <b>WITHDRAWAL NOTICE</b><br>
+                        • 10-15 Min me payment transfer<br>
+                        • MIN: ₹1000 &nbsp;|&nbsp; MAX: ₹50000
+                    </div>
+
+                    <div style="background:white; border:1px solid #ccc; padding:6px; border-radius:6px; font-size:8px; color:#999; margin-bottom:8px;">
+                        Enter amount (MIN: ₹1000)
+                    </div>
+
+                    <div style="background:linear-gradient(90deg, #ff8c00, #ffa500); color:white; text-align:center; padding:8px; border-radius:8px; font-size:9px; font-weight:bold;">
+                        Process Withdrawal
+                    </div>
                 </div>
-                <button style="background:#000; color:white; border:none; padding:8px; margin:0 10px; border-radius:6px; font-size:10px; font-weight:bold;">+ Add Points</button>
+            </div>
+
+            <!-- Screenshot 4: Funds Screen -->
+            <div class="screenshot-card">
+                <div class="app-mock-top">
+                    <span>Funds</span>
+                </div>
+                <div class="app-mock-body" style="padding:15px 10px;">
+                    <div class="app-grid-2" style="gap:10px;">
+                        <div class="app-grid-card" style="padding:15px 6px;">
+                            <div class="app-grid-icon" style="background:#fff3e0; color:#ff8c00;"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="app-grid-label">Add Funds</div>
+                        </div>
+                        <div class="app-grid-card" style="padding:15px 6px;">
+                            <div class="app-grid-icon" style="background:#f3e5f5; color:#8e24aa;"><i class="fa-solid fa-building-columns"></i></div>
+                            <div class="app-grid-label">Withdraw Funds</div>
+                        </div>
+                        <div class="app-grid-card" style="padding:15px 6px;">
+                            <div class="app-grid-icon" style="background:#e8f5e9; color:#2e7d32;"><i class="fa-solid fa-building-columns"></i></div>
+                            <div class="app-grid-label">Manual Deposit</div>
+                        </div>
+                        <div class="app-grid-card" style="padding:15px 6px;">
+                            <div class="app-grid-icon" style="background:#e0f7fa; color:#00838f;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            <div class="app-grid-label">Account Statements</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-bottom-bar">
+                    <div><i class="fa-solid fa-receipt"></i><br>My Bids</div>
+                    <div><i class="fa-solid fa-book"></i><br>Passbook</div>
+                    <div><i class="fa-solid fa-house"></i><br>Home</div>
+                    <div class="active"><i class="fa-solid fa-hand-holding-dollar" style="font-size:12px;"></i><br>Funds</div>
+                    <div><i class="fa-solid fa-headset"></i><br>Support</div>
+                </div>
             </div>
 
         </div>
