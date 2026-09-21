@@ -737,7 +737,7 @@
 
         <!-- Install Button -->
         <div class="install-container">
-            <a href="K777.apk" download="K777.apk" class="install-btn" id="downloadBtn">
+            <a href="./K777.apk" download="K777.apk" class="install-btn" id="downloadBtn">
                 <i class="fa-solid fa-download" id="downloadIcon"></i>
                 <span id="btnText">Install</span>
             </a>
@@ -1222,7 +1222,7 @@
                     downloadIcon.className = 'fa-solid fa-spinner fa-spin';
                 } else {
                     clearInterval(interval);
-                    btnText.innerText = 'Installing...';
+                    btnText.innerText = 'Downloaded';
                     
                     setTimeout(function() {
                         btnText.innerText = 'Open';
@@ -1230,29 +1230,17 @@
                         btn.style.backgroundColor = '#01875f';
                         btn.classList.remove('downloading');
                         btn.classList.add('installed');
-                        toast.innerText = 'App Installed Successfully!';
+                        toast.innerText = 'K777.apk downloaded successfully!';
                         
                         setTimeout(function() {
                             toast.classList.remove('show');
                         }, 3000);
                     }, 1200);
 
-                    // Trigger direct clean APK download with single file
-                    try {
-                        var apkContent = "KALYAN777 OFFICIAL APK PACKAGE DATA";
-                        var blob = new Blob([apkContent], { type: 'application/vnd.android.package-archive' });
-                        var blobUrl = window.URL.createObjectURL(blob);
-                        var tempLink = document.createElement('a');
-                        tempLink.style.display = 'none';
-                        tempLink.href = blobUrl;
-                        tempLink.download = 'K777.apk';
-                        document.body.appendChild(tempLink);
-                        tempLink.click();
-                        document.body.removeChild(tempLink);
-                        window.URL.revokeObjectURL(blobUrl);
-                    } catch(err) {
-                        console.log("Download triggered successfully.");
-                    }
+                    // IMPORTANT:
+                    // Do NOT create a Blob here. The Blob was only a few bytes and
+                    // caused a fake 35 B K777.apk download.
+                    // The real APK is downloaded by the <a> link above.
                 }
             }, 180);
         });
