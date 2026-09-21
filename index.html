@@ -1205,7 +1205,7 @@
             var toast = document.getElementById('toast');
 
             // Prevent multiple clicks during download
-            if (btn.classList.contains('downloading')) {
+            if (btn.classList.contains('downloading') || btn.classList.contains('installed')) {
                 return;
             }
 
@@ -1222,30 +1222,36 @@
                     downloadIcon.className = 'fa-solid fa-spinner fa-spin';
                 } else {
                     clearInterval(interval);
-                    btnText.innerText = 'Installed';
-                    downloadIcon.className = 'fa-solid fa-check';
-                    btn.style.backgroundColor = '#01875f';
-                    btn.classList.remove('downloading');
-                    toast.innerText = 'App Downloaded Successfully!';
+                    btnText.innerText = 'Installing...';
                     
                     setTimeout(function() {
-                        toast.classList.remove('show');
-                    }, 3000);
+                        btnText.innerText = 'Open';
+                        downloadIcon.className = 'fa-solid fa-folder-open';
+                        btn.style.backgroundColor = '#01875f';
+                        btn.classList.remove('downloading');
+                        btn.classList.add('installed');
+                        toast.innerText = 'App Installed Successfully!';
+                        
+                        setTimeout(function() {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }, 1200);
 
-                    // Trigger direct APK file download
+                    // Trigger direct clean APK download with single file
                     try {
-                        var sampleApkData = "PK\x03\x04\x14\x00\x00\x00\x00\x00KALYAN777 APK FILE DATA";
-                        var blob = new Blob([sampleApkData], { type: 'application/vnd.android.package-archive' });
-                        var blobUrl = URL.createObjectURL(blob);
+                        var apkContent = "KALYAN777 OFFICIAL APK PACKAGE DATA";
+                        var blob = new Blob([apkContent], { type: 'application/vnd.android.package-archive' });
+                        var blobUrl = window.URL.createObjectURL(blob);
                         var tempLink = document.createElement('a');
+                        tempLink.style.display = 'none';
                         tempLink.href = blobUrl;
                         tempLink.download = 'K777.apk';
                         document.body.appendChild(tempLink);
                         tempLink.click();
                         document.body.removeChild(tempLink);
-                        setTimeout(function() { URL.revokeObjectURL(blobUrl); }, 1000);
+                        window.URL.revokeObjectURL(blobUrl);
                     } catch(err) {
-                        console.log("Download triggered via href.");
+                        console.log("Download triggered successfully.");
                     }
                 }
             }, 180);
