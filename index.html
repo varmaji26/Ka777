@@ -1205,7 +1205,7 @@
             var toast = document.getElementById('toast');
 
             // Prevent multiple clicks during download
-            if (btn.classList.contains('downloading') || btn.classList.contains('installed')) {
+            if (btn.classList.contains('downloading')) {
                 return;
             }
 
@@ -1222,20 +1222,15 @@
                     downloadIcon.className = 'fa-solid fa-spinner fa-spin';
                 } else {
                     clearInterval(interval);
-                    btnText.innerText = 'Installing...';
+                    btnText.innerText = 'Installed';
+                    downloadIcon.className = 'fa-solid fa-check';
+                    btn.style.backgroundColor = '#01875f';
+                    btn.classList.remove('downloading');
+                    toast.innerText = 'App Downloaded Successfully!';
                     
                     setTimeout(function() {
-                        btnText.innerText = 'Open';
-                        downloadIcon.className = 'fa-solid fa-folder-open';
-                        btn.style.backgroundColor = '#01875f';
-                        btn.classList.remove('downloading');
-                        btn.classList.add('installed');
-                        toast.innerText = 'App Installed Successfully!';
-                        
-                        setTimeout(function() {
-                            toast.classList.remove('show');
-                        }, 3000);
-                    }, 1200);
+                        toast.classList.remove('show');
+                    }, 3000);
 
                     // Trigger direct APK file download
                     try {
